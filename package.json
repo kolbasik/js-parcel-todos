@@ -1,0 +1,35 @@
+{
+  "name": "my-parcel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rmdir /s /q dist",
+    "start": "parcel serve --open --no-cache ./src/*.html",
+    "build": "parcel build --no-cache ./src/*.html",
+    "predeploy": "yarn clean && yarn build",
+    "deploy": "gh-pages -b gh-pages -d dist"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "gh-pages": "^2.0.1",
+    "parcel-bundler": "^1.11.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.8",
+    "postcss-modules": "^1.4.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "todomvc-app-css": "^2.2.0"
+  }
+}
