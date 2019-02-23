@@ -4,30 +4,34 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rmdir /s /q dist",
+    "clean": "rimraf ./dist",
     "start": "parcel serve --open --no-cache ./src/*.html",
     "build": "parcel build --no-cache ./src/*.html",
     "predeploy": "yarn clean && yarn build",
-    "deploy": "gh-pages -b gh-pages -d dist"
+    "deploy": "gh-pages --no-push -d ./dist -b gh-pages"
   },
   "browserslist": "> 0.25%, not dead",
   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.11.0",
-    "typescript": "^3.3.3"
+    "parcel-bundler": "^1.11.0"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.8",
     "postcss-modules": "^1.4.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "todomvc-app-css": "^2.2.0"
